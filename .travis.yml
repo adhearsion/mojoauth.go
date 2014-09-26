@@ -1,0 +1,10 @@
+language: go
+go:
+  - 1.0
+  - 1.1
+  - 1.2
+  - 1.3
+  - tip
+before_script:
+  - sudo rm /dev/random
+  - sudo ln -s /dev/urandom /dev/random
