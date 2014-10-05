@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mojolingo/mojoauth.go.svg?branch=develop)](http://travis-ci.org/mojolingo/mojoauth.gp)
+[![Build Status](https://travis-ci.org/mojolingo/mojoauth.go.svg?branch=develop)](http://travis-ci.org/mojolingo/mojoauth.go)
 
 # mojoauth
 
