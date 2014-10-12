@@ -27,6 +27,32 @@ func TestCorrectCredentialsWithId(t *testing.T) {
 	}
 }
 
+func TestCorrectCredentialsWithIdAndTTL(t *testing.T) {
+	const user_id = "mojo"
+	secret := CreateSecret()
+	username, password := CreateCredentials(user_id, secret, 10000)
+	result, id := TestCredentials(username, password, secret)
+	if result == false {
+		t.Errorf("Credentials should have been valid")
+	}
+	if id != user_id {
+		t.Errorf("ID should have been %s, instead it was %s", user_id, id)
+	}
+}
+
+func TestCorrectCredentialsWithoutId(t *testing.T) {
+	const user_id = ""
+	secret := CreateSecret()
+	username, password := CreateCredentials(user_id, secret)
+	result, id := TestCredentials(username, password, secret)
+	if result == false {
+		t.Errorf("Credentials should have been valid")
+	}
+	if id != user_id {
+		t.Errorf("ID should have been %s, instead it was %s", user_id, id)
+	}
+}
+
 func TestIncorrectCredentialsWithId(t *testing.T) {
 	const user_id = "mojo"
 	secret := CreateSecret()
