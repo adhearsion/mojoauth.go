@@ -57,7 +57,7 @@ func TestCredentials(username string, password string, secret string, ttl_timest
 	}
 
 	expiry_timestamp, _ := strconv.Atoi(split_parts[0])
-	if expiry_timestamp > max_ttl {
+	if expiry_timestamp < max_ttl {
 		result = false
 	}
 	if SignMessage(username, secret) != password {
